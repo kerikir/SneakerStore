@@ -43,4 +43,10 @@
         libero vel nunc consequat, quis tincidunt nisl eleifend. Cras bibendum enim a justo luctus
         vestibulum. Fusce dictum libero quis erat maximus, vitae volutpat diam dignissim.
     </string>
+
+    <string name="empty_description" />
+
+    <string name="initial_screen_slogan">LIVE YOUR\nPERFECT</string>
+    <string name="initial_screen_marketing">Smart, gorgeous &amp; fashionable\ncollection makes you cool</string>
+    <string name="initial_screen_start_button">Get Started</string>
 </resources>
