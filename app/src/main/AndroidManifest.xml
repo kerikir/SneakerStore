@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SneakerStore">
         <activity
+            android:name=".activity.BaseActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.InitialActivity"
             android:exported="true">
             <intent-filter>

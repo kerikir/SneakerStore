@@ -2,11 +2,10 @@ package com.kerikir.sneakerstore.activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import com.kerikir.sneakerstore.MainActivity
 import com.kerikir.sneakerstore.databinding.ActivityInitialBinding
 
-class InitialActivity : AppCompatActivity() {
+class InitialActivity : BaseActivity() {
 
     lateinit var binding: ActivityInitialBinding
 
