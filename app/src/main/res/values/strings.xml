@@ -45,5 +45,8 @@
     </string>
 
     <string name="empty_description" />
+
     <string name="initial_screen_slogan">LIVE YOUR\nPERFECT</string>
+    <string name="initial_screen_marketing">Smart, gorgeous &amp; fashionable\ncollection makes you cool</string>
+    <string name="initial_screen_start_button">Get Started</string>
 </resources>

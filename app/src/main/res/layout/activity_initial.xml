@@ -48,6 +48,27 @@
             android:textColor="@color/white"
             android:textSize="33sp"
             android:textAlignment="center"/>
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/initial_screen_marketing"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:layout_marginTop="24dp"
+            android:lineSpacingExtra="10dp"/>
+
+        <TextView
+            android:id="@+id/button_start"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/initial_screen_start_button"
+            android:textAlignment="center"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:layout_marginTop="32dp"/>
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
