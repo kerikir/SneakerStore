@@ -56,6 +56,9 @@
 
     <string name="categories_title">Categories</string>
     <string name="categories_detail">See all</string>
+
     <string name="bestseller_title">Best Seller Product</string>
     <string name="bestseller_detail">See all</string>
+
+    <string name="menu_explorer">Explorer</string>
 </resources>
