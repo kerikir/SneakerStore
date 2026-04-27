@@ -49,4 +49,20 @@
     <string name="initial_screen_slogan">LIVE YOUR\nPERFECT</string>
     <string name="initial_screen_marketing">Smart, gorgeous &amp; fashionable\ncollection makes you cool</string>
     <string name="initial_screen_start_button">Get Started</string>
+
+    <string name="sale_title">Spring Sale</string>
+    <string name="sale_description">Save up to 30$\non sale Sneakers</string>
+    <string name="search_hint">Search anything</string>
+
+    <string name="categories_title">Categories</string>
+    <string name="categories_detail">See all</string>
+
+    <string name="bestseller_title">Best Seller Product</string>
+    <string name="bestseller_detail">See all</string>
+
+    <string name="menu_explorer">Explorer</string>
+    <string name="menu_cart">Cart</string>
+    <string name="menu_wishlist">Wishlist</string>
+    <string name="menu_order">My Order</string>
+    <string name="menu_profile">Profile</string>
 </resources>
