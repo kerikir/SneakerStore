@@ -34,5 +34,7 @@ class MainRepository {
                 TODO("Not yet implemented")
             }
         })
+
+        return categoriesLiveData
     }
 }
