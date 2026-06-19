@@ -1,6 +1,9 @@
 package com.kerikir.sneakerstore.adapter
 
+import android.content.Intent
 import android.content.res.ColorStateList
+import android.os.Handler
+import android.os.Looper
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -8,6 +11,7 @@ import androidx.core.widget.ImageViewCompat
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.kerikir.sneakerstore.R
+import com.kerikir.sneakerstore.activity.ListItemsActivity
 import com.kerikir.sneakerstore.databinding.ViewholderCategoryBinding
 import com.kerikir.sneakerstore.model.CategoryModel
 
@@ -58,6 +62,22 @@ class CategoryAdapter(
                     ContextCompat.getColor(holder.itemView.context, R.color.black)
                 )
             )
+        }
+
+        holder.binding.root.setOnClickListener {
+            if (position != RecyclerView.NO_POSITION) {
+                lastSelectedPosition = selectedPosition
+                selectedPosition = position
+                notifyItemChanged(lastSelectedPosition)
+                notifyItemChanged(selectedPosition)
+            }
+            Handler(Looper.getMainLooper()).postDelayed({
+                val intent = Intent(holder.itemView.context, ListItemsActivity::class.java).apply {
+                    putExtra("id", item.id.toString())
+                    putExtra("title", item.title)
+                }
+                ContextCompat.startActivity(holder.itemView.context, intent, null)
+            }, 500)
         }
     }
 
