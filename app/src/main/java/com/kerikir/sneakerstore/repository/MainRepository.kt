@@ -18,8 +18,16 @@ class MainRepository {
 
         val ref = firebaseDatabase.getReference("Category")
         ref.addValueEventListener(object : ValueEventListener {
+
             override fun onDataChange(snapshot: DataSnapshot) {
-                TODO("Not yet implemented")
+                val list = mutableListOf<CategoryModel>()
+                for (childSnapshot in snapshot.children) {
+                    val category = childSnapshot.getValue(CategoryModel::class.java)
+                    if (category != null) {
+                        list.add(category)
+                    }
+                }
+                categoriesLiveData.value = list
             }
 
             override fun onCancelled(error: DatabaseError) {
