@@ -51,4 +51,15 @@
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toStartOf="@+id/pic_brand"
         app:layout_constraintTop_toBottomOf="@+id/pic_brand" />
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        style="@style/Widget.AppCompat.RatingBar.Small"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:rating="4"
+        android:progressTint="@color/white"
+        app:layout_constraintStart_toStartOf="@+id/textView7"
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 </androidx.constraintlayout.widget.ConstraintLayout>
