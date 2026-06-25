@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SneakerStore">
         <activity
+            android:name=".activity.ListItemsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.BaseActivity"
             android:exported="false" />
         <activity
@@ -26,8 +29,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:theme="@style/Theme.SneakerStore">
-        </activity>
+            android:theme="@style/Theme.SneakerStore"></activity>
     </application>
 
 </manifest>
