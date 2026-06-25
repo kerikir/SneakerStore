@@ -7,6 +7,7 @@ import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 import com.kerikir.sneakerstore.model.CategoryModel
+import com.kerikir.sneakerstore.model.ItemsModel
 
 class MainRepository {
 
@@ -36,5 +37,30 @@ class MainRepository {
         })
 
         return categoriesLiveData
+    }
+
+
+    fun loadBestSeller(): LiveData<MutableList<ItemsModel>> {
+        val bestSellerLiveData = MutableLiveData<MutableList<ItemsModel>>()
+        val ref = firebaseDatabase.getReference("BestSeller")
+
+        ref.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val list = mutableListOf<ItemsModel>()
+                for (childSnapshot in snapshot.children) {
+                    val item = childSnapshot.getValue(ItemsModel::class.java)
+                    if (item != null) {
+                        list.add(item)
+                    }
+                }
+                bestSellerLiveData.value = list
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
+
+        return bestSellerLiveData
     }
 }
