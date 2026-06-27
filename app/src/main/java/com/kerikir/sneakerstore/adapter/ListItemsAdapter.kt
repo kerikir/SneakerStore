@@ -1,5 +1,6 @@
 package com.kerikir.sneakerstore.adapter
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -12,15 +13,32 @@ import com.kerikir.sneakerstore.model.ItemsModel
 class ListItemsAdapter(val items: MutableList<ItemsModel>) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
+    private var context: Context? = null
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): ListItemsAdapter.ViewHolder {
+    ): RecyclerView.ViewHolder {
 
-        val binding = ViewholderBestSellerBinding.inflate(
-            LayoutInflater.from(parent.context), parent, false
-        )
-        return ViewHolder(binding)
+        context = parent.context
+        return when (viewType) {
+
+            TYPE_ITEM -> {
+                val binding = ViewholderItemBinding.inflate(
+                    LayoutInflater.from(context), parent, false
+                )
+                ViewHolderItem(binding)
+            }
+
+            TYPE_ANOTHER_ITEM -> {
+                val binding = ViewholderAnotherItemBinding.inflate(
+                    LayoutInflater.from(context), parent, false
+                )
+                ViewHolderAnotherItem(binding)
+            }
+
+            else -> throw IllegalArgumentException("Invalid view type")
+        }
     }
 
 
@@ -40,6 +58,11 @@ class ListItemsAdapter(val items: MutableList<ItemsModel>) :
 
 
     override fun getItemCount(): Int = items.size
+
+
+    override fun getItemViewType(position: Int): Int {
+        return if (position % 2 == 0) TYPE_ITEM else TYPE_ANOTHER_ITEM
+    }
 
 
     companion object {
