@@ -42,18 +42,51 @@ class ListItemsAdapter(val items: MutableList<ItemsModel>) :
     }
 
 
-    override fun onBindViewHolder(holder: ListItemsAdapter.ViewHolder, position: Int) {
-        holder.biding.titleShoes.text = items[position].title
-        holder.biding.priceShoes.text = items[position].price.toString() + " USD"
-        holder.biding.ratingBar.rating = items[position].rating.toFloat()
+    override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
+        val item = items[position]
 
-        Glide.with(holder.itemView.context)
-            .load(items[position].picUrl.first())
-            .into(holder.biding.picShoes)
+        fun bindCommonData(
+            title: String, price: String, rating: Float, picUrl: String, logo: String
+        ) {
+            when (holder) {
 
-        Glide.with(holder.itemView.context)
-            .load(items[position].logo)
-            .into(holder.biding.picBrand)
+                is ViewHolderItem -> {
+                    holder.biding.titleShoes.text = title
+                    holder.biding.priceShoes.text = price
+                    holder.biding.ratingBar.rating = rating
+
+                    Glide.with(holder.itemView.context)
+                        .load(picUrl)
+                        .into(holder.biding.picShoes)
+
+                    Glide.with(holder.itemView.context)
+                        .load(logo)
+                        .into(holder.biding.picBrand)
+                }
+
+                is ViewHolderAnotherItem -> {
+                    holder.biding.titleShoes.text = title
+                    holder.biding.priceShoes.text = price
+                    holder.biding.ratingBar.rating = rating
+
+                    Glide.with(holder.itemView.context)
+                        .load(picUrl)
+                        .into(holder.biding.picShoes)
+
+                    Glide.with(holder.itemView.context)
+                        .load(logo)
+                        .into(holder.biding.picBrand)
+                }
+            }
+        }
+
+        bindCommonData(
+            item.title,
+            "${item.price} USD",
+            item.rating.toFloat(),
+            item.picUrl.first(),
+            item.logo
+        )
     }
 
 
