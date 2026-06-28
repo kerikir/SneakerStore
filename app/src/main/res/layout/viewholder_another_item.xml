@@ -33,7 +33,7 @@
         android:id="@+id/pic_brand"
         android:layout_width="24dp"
         android:layout_height="24dp"
-        android:layout_marginStart="24dp"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="8dp"
         app:layout_constraintStart_toEndOf="@+id/pic_shoes"
         app:layout_constraintTop_toTopOf="@+id/frameLayout"
