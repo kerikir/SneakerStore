@@ -51,7 +51,8 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/list_items"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent"
+                android:paddingHorizontal="16dp"/>
         </LinearLayout>
     </ScrollView>
 
