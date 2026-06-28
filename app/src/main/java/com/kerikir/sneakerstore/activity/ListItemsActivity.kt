@@ -1,8 +1,11 @@
 package com.kerikir.sneakerstore.activity
 
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
-import com.kerikir.sneakerstore.R
+import androidx.lifecycle.Observer
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.kerikir.sneakerstore.adapter.ListItemsAdapter
 import com.kerikir.sneakerstore.databinding.ActivityListItemsBinding
 import com.kerikir.sneakerstore.viewModel.MainViewModel
 
@@ -20,7 +23,7 @@ class ListItemsActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         getBundle()
-
+        initList()
     }
 
 
@@ -29,5 +32,21 @@ class ListItemsActivity : AppCompatActivity() {
         title = intent.getStringExtra("title")!!
 
         binding.category.text = title
+    }
+
+
+    private fun initList() {
+        binding.apply {
+            progressBarList.visibility = View.VISIBLE
+            viewModel.loadItems(id).observe(this@ListItemsActivity, Observer {
+                listItems.layoutManager = LinearLayoutManager(
+                    this@ListItemsActivity, LinearLayoutManager.VERTICAL, false
+                )
+                listItems.adapter = ListItemsAdapter(it)
+                progressBarList.visibility = View.GONE
+            })
+
+            backButton.setOnClickListener { finish() }
+        }
     }
 }
