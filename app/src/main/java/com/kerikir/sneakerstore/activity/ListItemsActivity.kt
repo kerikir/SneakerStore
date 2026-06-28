@@ -2,14 +2,13 @@ package com.kerikir.sneakerstore.activity
 
 import android.os.Bundle
 import android.view.View
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.kerikir.sneakerstore.adapter.ListItemsAdapter
 import com.kerikir.sneakerstore.databinding.ActivityListItemsBinding
 import com.kerikir.sneakerstore.viewModel.MainViewModel
 
-class ListItemsActivity : AppCompatActivity() {
+class ListItemsActivity : BaseActivity() {
 
     lateinit var binding: ActivityListItemsBinding
     private val viewModel = MainViewModel()
