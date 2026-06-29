@@ -1,9 +1,11 @@
 package com.kerikir.sneakerstore.adapter
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.kerikir.sneakerstore.activity.DetailActivity
 import com.kerikir.sneakerstore.databinding.ViewholderBestSellerBinding
 import com.kerikir.sneakerstore.model.ItemsModel
 
@@ -34,6 +36,12 @@ class BestSellerAdapter(val items: MutableList<ItemsModel>) :
         Glide.with(holder.itemView.context)
             .load(items[position].logo)
             .into(holder.biding.picBrand)
+
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, DetailActivity::class.java)
+            intent.putExtra("object", items[position])
+            holder.itemView.context.startActivity(intent)
+        }
     }
 
 
