@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.kerikir.sneakerstore.databinding.ViewholderColorShoesBinding
 
 class ListColorsAdapter(
@@ -35,13 +36,25 @@ class ListColorsAdapter(
         holder: ViewHolder,
         position: Int
     ) {
-        TODO("Not yet implemented")
+        Glide.with(context)
+            .load(items[position])
+            .into(holder.binding.picture)
+
+        holder.binding.root.setOnClickListener {
+            lastSelectedPosition = selectedPosition
+            selectedPosition = position
+
+            notifyItemChanged(lastSelectedPosition)
+            notifyItemChanged(selectedPosition)
+
+            Glide.with(context)
+                .load(items[position])
+                .into(picMain)
+        }
     }
 
 
-    override fun getItemCount(): Int {
-        TODO("Not yet implemented")
-    }
+    override fun getItemCount(): Int = items.size
 
 
     class ViewHolder(
