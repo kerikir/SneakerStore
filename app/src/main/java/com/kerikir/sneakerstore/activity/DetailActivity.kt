@@ -1,7 +1,9 @@
 package com.kerikir.sneakerstore.activity
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import com.kerikir.sneakerstore.MainActivity
 import com.kerikir.sneakerstore.R
 import com.kerikir.sneakerstore.databinding.ActivityDetailBinding
 import com.kerikir.sneakerstore.helper.ManagmentCart
@@ -16,11 +18,36 @@ class DetailActivity : AppCompatActivity() {
 
     private lateinit var managementCart: ManagmentCart
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         managementCart = ManagmentCart(this)
+
+        getBundle()
+    }
+
+
+    private fun getBundle() {
+        item = (intent.getSerializableExtra("object") as ItemsModel?)!!
+
+        binding.title.text = item.title
+        binding.description.text = item.description
+        binding.price.text = "$${item.price}"
+        binding.rating.text = item.rating.toString()
+
+        binding.addToCartButton.setOnClickListener {
+            item.numberInChart = numberOrder
+            managementCart.insertItems(item)
+        }
+        binding.backButton.setOnClickListener {
+            startActivity(
+                Intent(this, MainActivity::class.java)
+            )
+        }
+
+        binding.cartButton.setOnClickListener {  }
     }
 }
