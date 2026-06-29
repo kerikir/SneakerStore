@@ -3,8 +3,11 @@ package com.kerikir.sneakerstore.activity
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.bumptech.glide.Glide
 import com.kerikir.sneakerstore.MainActivity
 import com.kerikir.sneakerstore.R
+import com.kerikir.sneakerstore.adapter.ListColorsAdapter
 import com.kerikir.sneakerstore.databinding.ActivityDetailBinding
 import com.kerikir.sneakerstore.helper.ManagmentCart
 import com.kerikir.sneakerstore.model.ItemsModel
@@ -27,6 +30,7 @@ class DetailActivity : AppCompatActivity() {
         managementCart = ManagmentCart(this)
 
         getBundle()
+        initList()
     }
 
 
@@ -39,7 +43,7 @@ class DetailActivity : AppCompatActivity() {
         binding.rating.text = item.rating.toString()
 
         binding.addToCartButton.setOnClickListener {
-            item.numberInChart = numberOrder
+            item.numberInCart = numberOrder
             managementCart.insertItems(item)
         }
         binding.backButton.setOnClickListener {
@@ -49,5 +53,22 @@ class DetailActivity : AppCompatActivity() {
         }
 
         binding.cartButton.setOnClickListener {  }
+    }
+
+
+    private fun initList() {
+        val colors = ArrayList<String>()
+        for (imageUrl in item.picUrl) {
+            colors.add(imageUrl)
+        }
+
+        Glide.with(this)
+            .load(colors.first())
+            .into(binding.picShoes)
+
+        binding.picListColors.adapter = ListColorsAdapter(colors, binding.picShoes)
+        binding.picListColors.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.HORIZONTAL, false
+        )
     }
 }
