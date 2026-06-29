@@ -2,17 +2,15 @@ package com.kerikir.sneakerstore.activity
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.kerikir.sneakerstore.MainActivity
-import com.kerikir.sneakerstore.R
 import com.kerikir.sneakerstore.adapter.ListColorsAdapter
 import com.kerikir.sneakerstore.databinding.ActivityDetailBinding
 import com.kerikir.sneakerstore.helper.ManagmentCart
 import com.kerikir.sneakerstore.model.ItemsModel
 
-class DetailActivity : AppCompatActivity() {
+class DetailActivity : BaseActivity() {
 
     private lateinit var binding: ActivityDetailBinding
 
