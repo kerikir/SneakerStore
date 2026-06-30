@@ -1,8 +1,10 @@
 package com.kerikir.sneakerstore.adapter
 
 import android.content.Context
+import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.kerikir.sneakerstore.R
 import com.kerikir.sneakerstore.databinding.ViewholderSizeBinding
 
 class ListSizeAdapter(
@@ -18,7 +20,11 @@ class ListSizeAdapter(
         parent: ViewGroup,
         viewType: Int
     ): ViewHolder {
-        TODO("Not yet implemented")
+        context = parent.context
+        val binding = ViewholderSizeBinding.inflate(
+            LayoutInflater.from(context), parent, false
+        )
+        return ViewHolder(binding)
     }
 
 
@@ -26,7 +32,23 @@ class ListSizeAdapter(
         holder: ViewHolder,
         position: Int
     ) {
-        TODO("Not yet implemented")
+        holder.binding.size.text = items[position]
+
+        holder.binding.root.setOnClickListener {
+            lastSelectedPosition = selectedPosition
+            selectedPosition = position
+
+            notifyItemChanged(lastSelectedPosition)
+            notifyItemChanged(selectedPosition)
+
+            if (selectedPosition == position) {
+                holder.binding.sizeLayout.setBackgroundResource(R.drawable.green_size_bg)
+                holder.binding.size.setTextColor(context.resources.getColor(R.color.white))
+            } else {
+                holder.binding.sizeLayout.setBackgroundResource(R.drawable.gray_bg)
+                holder.binding.size.setTextColor(context.resources.getColor(R.color.black))
+            }
+        }
     }
 
 
