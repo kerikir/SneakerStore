@@ -40,14 +40,14 @@ class ListSizeAdapter(
 
             notifyItemChanged(lastSelectedPosition)
             notifyItemChanged(selectedPosition)
+        }
 
-            if (selectedPosition == position) {
-                holder.binding.sizeLayout.setBackgroundResource(R.drawable.green_size_bg)
-                holder.binding.size.setTextColor(context.resources.getColor(R.color.white))
-            } else {
-                holder.binding.sizeLayout.setBackgroundResource(R.drawable.gray_bg)
-                holder.binding.size.setTextColor(context.resources.getColor(R.color.black))
-            }
+        if (selectedPosition == position) {
+            holder.binding.sizeLayout.setBackgroundResource(R.drawable.green_size_bg)
+            holder.binding.size.setTextColor(context.resources.getColor(R.color.white))
+        } else {
+            holder.binding.sizeLayout.setBackgroundResource(R.drawable.gray_bg)
+            holder.binding.size.setTextColor(context.resources.getColor(R.color.black))
         }
     }
 
