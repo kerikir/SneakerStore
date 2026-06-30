@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
 import com.kerikir.sneakerstore.MainActivity
 import com.kerikir.sneakerstore.adapter.ListColorsAdapter
+import com.kerikir.sneakerstore.adapter.ListSizeAdapter
 import com.kerikir.sneakerstore.databinding.ActivityDetailBinding
 import com.kerikir.sneakerstore.helper.ManagmentCart
 import com.kerikir.sneakerstore.model.ItemsModel
@@ -66,6 +67,16 @@ class DetailActivity : BaseActivity() {
 
         binding.picListColors.adapter = ListColorsAdapter(colors, binding.picShoes)
         binding.picListColors.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.HORIZONTAL, false
+        )
+
+        val sizes = ArrayList<String>()
+        for (size in item.size) {
+            sizes.add(size)
+        }
+
+        binding.sizeList.adapter = ListSizeAdapter(sizes)
+        binding.sizeList.layoutManager = LinearLayoutManager(
             this, LinearLayoutManager.HORIZONTAL, false
         )
     }
