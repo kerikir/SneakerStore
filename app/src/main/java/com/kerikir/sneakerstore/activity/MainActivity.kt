@@ -1,5 +1,6 @@
 package com.kerikir.sneakerstore.activity
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.Observer
@@ -23,6 +24,7 @@ class MainActivity : BaseActivity() {
 
         initCategories()
         initBestSellers()
+        bottomNavigation()
     }
 
 
@@ -55,5 +57,12 @@ class MainActivity : BaseActivity() {
 
             binding.progressBarBestseller.visibility = View.GONE
         })
+    }
+
+
+    private fun bottomNavigation() {
+        binding.cartButton.setOnClickListener {
+            startActivity(Intent(this, CartActivity::class.java))
+        }
     }
 }

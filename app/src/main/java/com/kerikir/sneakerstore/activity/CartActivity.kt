@@ -23,8 +23,8 @@ class CartActivity : BaseActivity() {
         managementCart = ManagmentCart(this)
 
         setVariable()
-        calculateCart()
         initCartList()
+        calculateCart()
     }
 
 
