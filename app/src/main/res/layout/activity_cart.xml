@@ -8,7 +8,19 @@
     android:background="@color/white"
     tools:context=".activity.CartActivity">
 
+    <TextView
+        android:id="@+id/empty_cart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Cart is Empty"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="gone" />
+
     <ScrollView
+        android:id="@+id/scrollView3"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +30,7 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical" >
+            android:orientation="vertical">
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
@@ -30,15 +42,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="My Cart"
-                    android:textStyle="bold"
-                    android:textSize="25sp"
                     android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <ImageView
-                    android:id="@+id/imageView3"
+                    android:id="@+id/back_button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="24dp"
@@ -50,38 +62,38 @@
             <androidx.recyclerview.widget.RecyclerView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_margin="16dp"/>
+                android:layout_margin="16dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal"
+                android:layout_margin="24dp"
                 android:background="@drawable/gray_bg_full_corner"
-                android:layout_margin="24dp">
+                android:orientation="horizontal">
 
                 <EditText
                     android:id="@+id/editTextText2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:ems="10"
-                    android:paddingHorizontal="8dp"
                     android:background="#00000000"
-                    android:inputType="text"
+                    android:ems="10"
                     android:hint="Enter Your Copoun"
-                    android:textSize="14sp"/>
+                    android:inputType="text"
+                    android:paddingHorizontal="8dp"
+                    android:textSize="14sp" />
 
                 <androidx.appcompat.widget.AppCompatButton
-                    style="@android:style/Widget.Button"
-                    android:background="@drawable/green_bg"
-                    android:textColor="@color/white"
                     android:id="@+id/button"
+                    style="@android:style/Widget.Button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:background="@drawable/green_bg"
                     android:text="Apply"
+                    android:textColor="@color/white"
                     android:textSize="16sp"
-                    android:textStyle="bold"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <androidx.constraintlayout.widget.ConstraintLayout
@@ -189,6 +201,17 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/view" />
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/check_out_button"
+                style="@android:style/Widget.Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="24dp"
+                android:background="@drawable/green_bg"
+                android:text="Check Out"
+                android:textColor="@color/white"
+                android:textSize="18sp" />
         </LinearLayout>
     </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
