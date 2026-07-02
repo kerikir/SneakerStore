@@ -46,12 +46,14 @@ class DetailActivity : BaseActivity() {
             managementCart.insertItems(item)
         }
         binding.backButton.setOnClickListener {
-            startActivity(
-                Intent(this, MainActivity::class.java)
-            )
+            finish()
         }
 
-        binding.cartButton.setOnClickListener {  }
+        binding.cartButton.setOnClickListener {
+            startActivity(
+                Intent(this, CartActivity::class.java)
+            )
+        }
     }
 
 
