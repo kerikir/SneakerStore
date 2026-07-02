@@ -5,3 +5,4 @@
 <img width="400" alt="Screenshot_20260629_011424_Sneaker Store" src="https://github.com/user-attachments/assets/8bb7fd07-83ec-478e-9c05-4e0cd8fc17d0" />
 <img width="400" alt="Screenshot_20260630_031401_Sneaker Store" src="https://github.com/user-attachments/assets/34c82d3d-db7d-4a2e-b183-2f268c649e9c" />
 <img width="400" alt="Screenshot_20260630_031433_Sneaker Store" src="https://github.com/user-attachments/assets/1945cab0-4a19-4599-8923-2cce009c8944" />
+<img width="400" alt="Screenshot_20260702_163137_Sneaker Store" src="https://github.com/user-attachments/assets/2607f38c-91ab-42ac-8701-37488b81fbd7" />
