@@ -1,8 +1,11 @@
 package com.kerikir.sneakerstore.activity
 
 import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.kerikir.sneakerstore.R
+import com.kerikir.sneakerstore.adapter.CartAdapter
 import com.kerikir.sneakerstore.databinding.ActivityCartBinding
+import com.kerikir.sneakerstore.helper.ChangeNumberItemsListener
 import com.kerikir.sneakerstore.helper.ManagmentCart
 
 class CartActivity : BaseActivity() {
@@ -21,6 +24,7 @@ class CartActivity : BaseActivity() {
 
         setVariable()
         calculateCart()
+        initCartList()
     }
 
 
@@ -40,5 +44,19 @@ class CartActivity : BaseActivity() {
 
     private fun setVariable() {
         binding.backButton.setOnClickListener { finish() }
+    }
+
+
+    private fun initCartList() {
+        binding.cartRecyclerView.layoutManager = LinearLayoutManager(
+            this, LinearLayoutManager.VERTICAL, false
+        )
+        binding.cartRecyclerView.adapter = CartAdapter(
+            managementCart.getListCart(), this, object : ChangeNumberItemsListener {
+                override fun onChanged() {
+                    calculateCart()
+                }
+            }
+        )
     }
 }
