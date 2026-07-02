@@ -55,7 +55,9 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:background="@drawable/gray_bg_full_corner"
+                android:layout_margin="24dp">
 
                 <EditText
                     android:id="@+id/editTextText2"
@@ -63,15 +65,23 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:paddingHorizontal="8dp"
+                    android:background="#00000000"
                     android:inputType="text"
-                    android:text="Name" />
+                    android:hint="Enter Your Copoun"
+                    android:textSize="14sp"/>
 
-                <Button
+                <androidx.appcompat.widget.AppCompatButton
+                    style="@android:style/Widget.Button"
+                    android:background="@drawable/green_bg"
+                    android:textColor="@color/white"
                     android:id="@+id/button"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Button" />
+                    android:text="Apply"
+                    android:textSize="16sp"
+                    android:textStyle="bold"/>
             </LinearLayout>
         </LinearLayout>
     </ScrollView>
