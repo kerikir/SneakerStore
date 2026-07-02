@@ -2,7 +2,6 @@ package com.kerikir.sneakerstore.activity
 
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.kerikir.sneakerstore.R
 import com.kerikir.sneakerstore.adapter.CartAdapter
 import com.kerikir.sneakerstore.databinding.ActivityCartBinding
 import com.kerikir.sneakerstore.helper.ChangeNumberItemsListener
