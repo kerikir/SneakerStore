@@ -4,6 +4,7 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.kerikir.sneakerstore.databinding.ViewholderCartBinding
 import com.kerikir.sneakerstore.helper.ChangeNumberItemsListener
 import com.kerikir.sneakerstore.helper.ManagmentCart
@@ -33,7 +34,33 @@ class CartAdapter(
         holder: ViewHolder,
         position: Int
     ) {
-        TODO("Not yet implemented")
+        val item = listItemSelected[position]
+
+        holder.binding.title.text = item.title
+        holder.binding.feeEachItem.text = "$${item.price}"
+        holder.binding.totalEachItem.text = "$${Math.round(item.numberInCart * item.price)}"
+        holder.binding.numberItem.text = item.numberInCart.toString()
+
+        Glide.with(holder.itemView.context)
+            .load(item.picUrl[0])
+            .into(holder.binding.picCart)
+
+        holder.binding.plusCartButton.setOnClickListener {
+            managementCart.plusItem(listItemSelected, position, object : ChangeNumberItemsListener {
+                override fun onChanged() {
+                    notifyDataSetChanged()
+                    changeNumberItemsListener?.onChanged()
+                }
+            })
+        }
+        holder.binding.minusCartButton.setOnClickListener {
+            managementCart.minusItem(listItemSelected, position, object : ChangeNumberItemsListener {
+                override fun onChanged() {
+                    notifyDataSetChanged()
+                    changeNumberItemsListener?.onChanged()
+                }
+            })
+        }
     }
 
 
