@@ -2,7 +2,7 @@ package com.kerikir.sneakerstore.activity
 
 import android.content.Intent
 import android.os.Bundle
-import com.kerikir.sneakerstore.MainActivity
+import com.kerikir.sneakerstore.activity.MainActivity
 import com.kerikir.sneakerstore.databinding.ActivityInitialBinding
 
 class InitialActivity : BaseActivity() {
