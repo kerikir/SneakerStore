@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/white"
     android:fitsSystemWindows="true"
-    tools:context=".MainActivity">
+    tools:context=".activity.MainActivity">
 
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
@@ -243,6 +243,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/cart_button"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="0.2"

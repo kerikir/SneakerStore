@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bumptech.glide.Glide
-import com.kerikir.sneakerstore.MainActivity
+import com.kerikir.sneakerstore.activity.MainActivity
 import com.kerikir.sneakerstore.adapter.ListColorsAdapter
 import com.kerikir.sneakerstore.adapter.ListSizeAdapter
 import com.kerikir.sneakerstore.databinding.ActivityDetailBinding
@@ -46,12 +46,14 @@ class DetailActivity : BaseActivity() {
             managementCart.insertItems(item)
         }
         binding.backButton.setOnClickListener {
-            startActivity(
-                Intent(this, MainActivity::class.java)
-            )
+            finish()
         }
 
-        binding.cartButton.setOnClickListener {  }
+        binding.cartButton.setOnClickListener {
+            startActivity(
+                Intent(this, CartActivity::class.java)
+            )
+        }
     }
 
 

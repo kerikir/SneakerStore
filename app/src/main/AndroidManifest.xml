@@ -12,6 +12,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SneakerStore">
         <activity
+            android:name=".activity.CartActivity"
+            android:exported="false" />
+        <activity
             android:name=".activity.DetailActivity"
             android:exported="false" />
         <activity
@@ -30,7 +33,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
+            android:name=".activity.MainActivity"
             android:exported="true"
             android:theme="@style/Theme.SneakerStore" />
     </application>
