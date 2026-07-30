@@ -18,6 +18,33 @@
 
 ---
 
+## 🛠 Технологический стек
+
+![Kotlin](https://img.shields.io/badge/Kotlin-7F52FF?style=for-the-badge&logo=kotlin&logoColor=white)
+![Android XML](https://img.shields.io/badge/UI-XML-3DDC84?style=for-the-badge&logo=android&logoColor=white)
+![Firebase](https://img.shields.io/badge/Firebase-FFCA28?style=for-the-badge&logo=firebase&logoColor=black)
+![LiveData](https://img.shields.io/badge/LiveData-7F52FF?style=for-the-badge&logo=android&logoColor=white)
+![MVVM](https://img.shields.io/badge/MVVM-FF6F00?style=for-the-badge&logo=android&logoColor=white)
+![Glide](https://img.shields.io/badge/Glide-18BED4?style=for-the-badge&logo=glide&logoColor=white)
+
+---
+
+## 🧱 Архитектура
+
+Приложение построено по паттерну **MVVM**, что обеспечивает чёткое разделение UI и бизнес-логики.  
+**Структура слоёв:**
+
+- **UI (View)** – XML-разметки и Activity/Fragment, наблюдающие за `LiveData` из ViewModel.
+- **ViewModel** – подготовка данных, управление состояниями экрана, взаимодействие с репозиторием.
+- **Repository** – получение данных из Firebase Realtime Database и предоставление их ViewModel.
+- **Model** – классы данных (кроссовок, категория, элемент корзины).
+
+Все данные о товарах, категориях и описаниях загружаются из **Firebase Database** в реальном времени. При отсутствии соединения или длительной загрузке отображается индикатор прогресса.  
+Изображения загружаются с помощью **Glide**, что обеспечивает кэширование и плавное отображение.  
+Навигация между экранами реализована с использованием `FragmentManager` и нижней панели навигации.
+
+---
+
 <img width="400" alt="Screenshot_20260427_150530_Sneaker Store" src="https://github.com/user-attachments/assets/235c43a8-bd90-4cce-955d-531186711a6b" />
 <img width="400" alt="Screenshot_20260427_150542_Sneaker Store" src="https://github.com/user-attachments/assets/148cbb82-54f3-4772-ab30-c80df863be4b" />
 <img width="400" alt="Screenshot_20260625_182109_Sneaker Store" src="https://github.com/user-attachments/assets/388e63ee-ba44-4195-a656-7199a733dccb" />
